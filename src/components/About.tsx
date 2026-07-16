@@ -35,7 +35,7 @@ export function About() {
               I&apos;m a finance student at the College of Charleston and the
               founder of{" "}
               <span className="font-medium text-ink">Squeegee Guys</span>, a
-              pressure washing company I built from the ground up.
+              window cleaning company I built from the ground up.
             </p>
             <p>
               Running that business meant confronting a problem most service

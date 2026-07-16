@@ -37,7 +37,7 @@ export function Problem() {
             <p>
               I know because I&apos;ve lived it. I founded and run{" "}
               <span className="font-medium text-ink">Squeegee Guys</span>, a
-              pressure washing company — and built this agency around the
+              window cleaning company — and built this agency around the
               outbound systems I had to build to keep my own pipeline full.
             </p>
           </motion.div>
