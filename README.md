@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harris Growth Partners — Website
 
-## Getting Started
+A single-page marketing site built with Next.js and Tailwind CSS.
 
-First, run the development server:
+## Running it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Almost everything text-based lives in these files:
 
-## Learn More
+- [`src/lib/site-config.ts`](src/lib/site-config.ts) — business name, tagline, founder name, contact email, Formspree ID
+- [`src/components/`](src/components/) — one file per section (`Hero.tsx`, `Services.tsx`, `About.tsx`, etc.). Section copy lives directly in each file.
+- [`src/app/globals.css`](src/app/globals.css) — the color palette (`--color-*` variables). Change these to retheme the whole site.
 
-To learn more about Next.js, take a look at the following resources:
+## Turning on the contact form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The contact form works out of the box, but needs a place to send submissions:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a free account at [formspree.io](https://formspree.io) and add a new form.
+2. Copy the form ID (the part after `f/` in the endpoint Formspree gives you).
+3. Paste it into `formspreeId` in [`src/lib/site-config.ts`](src/lib/site-config.ts).
 
-## Deploy on Vercel
+Until you do this, the contact section shows a simple "email me directly" message instead of the form, so the site is never broken.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploying
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The simplest option is [Vercel](https://vercel.com/new) (made by the Next.js team, free tier is enough for this site):
+
+1. Push this project to a GitHub repo.
+2. Import the repo at [vercel.com/new](https://vercel.com/new).
+3. Vercel auto-detects Next.js — just click Deploy.
+
+Before deploying, update `url` in `src/lib/site-config.ts` to your real domain (used for SEO tags).
