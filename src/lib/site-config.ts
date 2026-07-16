@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Harris Growth Partners helps local service businesses — pressure washing, landscaping, cleaning, and similar trades — find high-quality customers through market research and structured outbound sales systems.",
   founderName: "Nicholas Harris",
-  contactEmail: "hello@harrisgrowthpartners.com",
+  contactEmail: "nharristhe4th@gmail.com",
   url: "https://www.harrisgrowthpartners.com",
 
   // Create a free form at https://formspree.io, then paste the form ID
