@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Full grayscale palette — no hue anywhere, pure neutrals only. */
-  --color-paper: #fafafa;
-  --color-ink: #171717;
-  --color-ink-soft: #737373;
-  --color-line: #e5e5e5;
+  /* Dark navy/charcoal palette — soft, not pure black, so it still
+     reads as a credible consulting site rather than a gaming/tech
+     startup. Text is off-white, never pure white, to keep contrast
+     comfortable rather than harsh. */
+  --color-paper: #0c1018;
+  --color-surface: #131a26;
+  --color-ink: #e9ebf0;
+  --color-ink-soft: #99a3b5;
+  --color-line: #26304480;
 
-  /* "Accent" is a mid-gray used for emphasis (eyebrows, icons, hover
-     states) — kept as its own token so components don't need to change
-     if the palette shifts again later. */
-  --color-accent: #525252;
-  --color-accent-soft: #f2f2f2;
+  /* Single muted warm-gold accent for CTAs/highlights — pops against
+     the navy without reading as a bright energy/gaming hue. */
+  --color-accent: #d3a86a;
+  --color-accent-soft: #d3a86a1f;
 }
 
 @theme inline {
   --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
   --color-line: var(--color-line);
@@ -25,8 +29,8 @@
   --font-serif: var(--font-source-serif);
 }
 
-/* The palette is a single deliberate light theme rather than one that
-   flips with OS dark-mode — keeps contrast and the accent color
+/* One deliberate dark theme rather than something that flips with OS
+   light/dark preference — keeps contrast and the accent color
    consistent everywhere the site is viewed. */
 body {
   background: var(--color-paper);

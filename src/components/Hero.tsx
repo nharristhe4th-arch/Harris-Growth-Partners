@@ -45,7 +45,7 @@ function HeroContent() {
         <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href="#contact"
-            className="inline-block rounded-sm bg-ink px-6 py-3 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg hover:shadow-accent/20 active:translate-y-0"
+            className="inline-block rounded-sm bg-accent px-6 py-3 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-lg hover:shadow-accent/30 active:translate-y-0"
           >
             Book a Consultation
           </a>

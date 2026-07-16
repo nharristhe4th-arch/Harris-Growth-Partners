@@ -47,7 +47,7 @@ export function Services() {
         </motion.div>
 
         <motion.div
-          className="mt-16 grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-3"
+          className="mt-16 grid gap-6 md:grid-cols-3"
           initial={shouldReduceMotion ? false : "hidden"}
           whileInView="visible"
           viewport={viewportOnce}
@@ -58,7 +58,7 @@ export function Services() {
               {/* Hover lift lives on its own element so it doesn't fight
                   the scroll-reveal transition above for the same
                   transitioned properties. */}
-              <div className="group h-full bg-white p-8 transition-all duration-300 hover:relative hover:z-10 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5">
+              <div className="group h-full rounded-2xl border border-line bg-surface/70 p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-black/30">
                 <Icon className="h-6 w-6 text-accent transition-transform duration-300 group-hover:scale-110" />
                 <h3 className="mt-6 font-serif text-xl">{title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-ink-soft">

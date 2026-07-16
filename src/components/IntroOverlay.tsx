@@ -36,12 +36,12 @@ export function IntroOverlay() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-ink transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-paper transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         overlayVisible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
       <span
-        className={`font-serif text-2xl tracking-tight text-paper transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`font-serif text-2xl tracking-tight text-ink transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           textVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
         }`}
       >

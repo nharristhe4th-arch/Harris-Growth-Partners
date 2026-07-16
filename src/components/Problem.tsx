@@ -7,10 +7,10 @@ export function Problem() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="border-t border-line bg-white">
+    <section className="border-t border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <motion.div
-          className="grid gap-12 md:grid-cols-2"
+          className="grid gap-12 rounded-2xl border border-line bg-surface/70 p-8 backdrop-blur-md sm:p-12 md:grid-cols-2"
           initial={shouldReduceMotion ? false : "hidden"}
           whileInView="visible"
           viewport={viewportOnce}

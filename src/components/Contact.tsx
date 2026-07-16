@@ -41,7 +41,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-line bg-white">
+    <section id="contact" className="border-t border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <motion.div
           className="grid gap-12 md:grid-cols-2"
@@ -73,12 +73,12 @@ export function Contact() {
           {!formspreeConfigured ? (
             <motion.div
               variants={fadeUp}
-              className="flex flex-col justify-center rounded-sm border border-line bg-paper p-8 text-ink-soft"
+              className="flex flex-col justify-center rounded-2xl border border-line bg-surface/70 p-8 text-ink-soft backdrop-blur-md"
             >
               <p>
                 The contact form isn&apos;t wired up yet — add a Formspree
                 form ID in{" "}
-                <code className="rounded-sm bg-line px-1.5 py-0.5 text-sm">
+                <code className="rounded-sm bg-paper/80 px-1.5 py-0.5 text-sm">
                   src/lib/site-config.ts
                 </code>{" "}
                 to enable it. Until then, visitors can reach out by email
@@ -86,7 +86,10 @@ export function Contact() {
               </p>
             </motion.div>
           ) : (
-            <motion.div variants={fadeUp}>
+            <motion.div
+              variants={fadeUp}
+              className="rounded-2xl border border-line bg-surface/70 p-8 backdrop-blur-md"
+            >
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
@@ -144,7 +147,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="rounded-sm bg-ink px-6 py-3 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg hover:shadow-accent/20 active:translate-y-0 disabled:pointer-events-none disabled:opacity-60"
+                  className="rounded-sm bg-accent px-6 py-3 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-lg hover:shadow-accent/30 active:translate-y-0 disabled:pointer-events-none disabled:opacity-60"
                 >
                   {status === "submitting" ? "Sending…" : "Send message"}
                 </button>
@@ -155,7 +158,7 @@ export function Contact() {
                   </p>
                 )}
                 {status === "error" && (
-                  <p className="fade-in text-sm text-red-700">
+                  <p className="fade-in text-sm text-rose-400">
                     Something went wrong. Please try again or email directly.
                   </p>
                 )}

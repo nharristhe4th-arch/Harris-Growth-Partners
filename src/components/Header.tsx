@@ -22,8 +22,8 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-paper/90 backdrop-blur-sm transition-shadow duration-300 ${
-        scrolled ? "border-line shadow-sm" : "border-line/0"
+      className={`sticky top-0 z-50 border-b bg-paper/75 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "border-line shadow-sm shadow-black/20" : "border-line/0"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -45,7 +45,7 @@ export function Header() {
 
         <a
           href="#contact"
-          className="rounded-sm bg-ink px-4 py-2 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg hover:shadow-accent/20 active:translate-y-0"
+          className="rounded-sm bg-accent px-4 py-2 text-sm font-medium text-paper transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-lg hover:shadow-accent/30 active:translate-y-0"
         >
           Get in Touch
         </a>
