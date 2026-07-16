@@ -11,5 +11,5 @@ export const siteConfig = {
   // Create a free form at https://formspree.io, then paste the form ID
   // here (the part after "f/" in your form's endpoint URL). Until you
   // do, the contact form will show a message asking to email directly.
-  formspreeId: "",
+  formspreeId: "xeeyajgo",
 };
