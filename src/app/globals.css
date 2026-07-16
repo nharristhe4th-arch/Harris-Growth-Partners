@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Neutral base */
-  --color-paper: #faf9f7;
-  --color-ink: #1c1c1a;
-  --color-ink-soft: #55554f;
-  --color-line: #e4e1da;
+  /* Full grayscale palette — no hue anywhere, pure neutrals only. */
+  --color-paper: #fafafa;
+  --color-ink: #171717;
+  --color-ink-soft: #737373;
+  --color-line: #e5e5e5;
 
-  /* Single accent: deep evergreen — reads as "growth" without the
-     generic SaaS-teal look. Used sparingly (CTAs, numerals, links). */
-  --color-accent: #2f4a3c;
-  --color-accent-soft: #eef1ee;
+  /* "Accent" is a mid-gray used for emphasis (eyebrows, icons, hover
+     states) — kept as its own token so components don't need to change
+     if the palette shifts again later. */
+  --color-accent: #525252;
+  --color-accent-soft: #f2f2f2;
 }
 
 @theme inline {

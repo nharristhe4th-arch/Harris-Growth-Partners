@@ -6,10 +6,12 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { IntroOverlay } from "@/components/IntroOverlay";
 
 export default function Home() {
   return (
     <>
+      <IntroOverlay />
       <Header />
       <main>
         <Hero />
