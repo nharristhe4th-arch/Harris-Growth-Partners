@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/lib/site-config";
-import { Reveal } from "./Reveal";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const shouldReduceMotion = useReducedMotion();
   const formspreeConfigured = siteConfig.formspreeId.trim().length > 0;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -41,8 +43,14 @@ export function Contact() {
   return (
     <section id="contact" className="border-t border-line bg-white">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <div className="grid gap-12 md:grid-cols-2">
-          <Reveal>
+        <motion.div
+          className="grid gap-12 md:grid-cols-2"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+        >
+          <motion.div variants={fadeUp}>
             <h2 className="font-serif text-3xl tracking-tight sm:text-4xl">
               Let&apos;s talk about your growth
             </h2>
@@ -60,11 +68,11 @@ export function Contact() {
               </a>
               .
             </p>
-          </Reveal>
+          </motion.div>
 
           {!formspreeConfigured ? (
-            <Reveal
-              delay={100}
+            <motion.div
+              variants={fadeUp}
               className="flex flex-col justify-center rounded-sm border border-line bg-paper p-8 text-ink-soft"
             >
               <p>
@@ -76,9 +84,9 @@ export function Contact() {
                 to enable it. Until then, visitors can reach out by email
                 above.
               </p>
-            </Reveal>
+            </motion.div>
           ) : (
-            <Reveal delay={100}>
+            <motion.div variants={fadeUp}>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
@@ -152,9 +160,9 @@ export function Contact() {
                   </p>
                 )}
               </form>
-            </Reveal>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

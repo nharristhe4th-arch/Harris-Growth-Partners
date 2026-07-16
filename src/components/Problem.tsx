@@ -1,17 +1,32 @@
-import { Reveal } from "./Reveal";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Problem() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="border-t border-line bg-white">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <div className="grid gap-12 md:grid-cols-2">
-          <Reveal>
-            <h2 className="font-serif text-3xl leading-snug tracking-tight sm:text-4xl">
-              Finding customers shouldn&apos;t be the hardest part of the job.
-            </h2>
-          </Reveal>
+        <motion.div
+          className="grid gap-12 md:grid-cols-2"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="font-serif text-3xl leading-snug tracking-tight sm:text-4xl"
+          >
+            Finding customers shouldn&apos;t be the hardest part of the job.
+          </motion.h2>
 
-          <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-ink-soft">
+          <motion.div
+            variants={fadeUp}
+            className="space-y-6 text-lg leading-relaxed text-ink-soft"
+          >
             <p>
               Running a service business is hard enough — scheduling crews,
               managing quality, keeping customers happy. But consistent lead
@@ -25,8 +40,8 @@ export function Problem() {
               pressure washing company — and built this agency around the
               outbound systems I had to build to keep my own pipeline full.
             </p>
-          </Reveal>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

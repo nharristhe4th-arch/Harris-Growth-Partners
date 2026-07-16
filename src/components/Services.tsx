@@ -1,5 +1,8 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { TargetIcon, ListIcon, SignalIcon } from "./icons";
-import { Reveal } from "./Reveal";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const services = [
   {
@@ -23,24 +26,38 @@ const services = [
 ];
 
 export function Services() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="services" className="border-t border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <Reveal className="max-w-2xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <h2 className="font-serif text-3xl tracking-tight sm:text-4xl">
             What I do
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
             Three pieces, built to work together as one system.
           </p>
-        </Reveal>
+        </motion.div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-3">
-          {services.map(({ icon: Icon, title, description }, index) => (
-            <Reveal key={title} delay={index * 100} className="h-full">
+        <motion.div
+          className="mt-16 grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-3"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.12)}
+        >
+          {services.map(({ icon: Icon, title, description }) => (
+            <motion.div key={title} variants={fadeUp} className="h-full">
               {/* Hover lift lives on its own element so it doesn't fight
-                  the reveal fade/slide transition above for the same
-                  transition-property. */}
+                  the scroll-reveal transition above for the same
+                  transitioned properties. */}
               <div className="group h-full bg-white p-8 transition-all duration-300 hover:relative hover:z-10 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5">
                 <Icon className="h-6 w-6 text-accent transition-transform duration-300 group-hover:scale-110" />
                 <h3 className="mt-6 font-serif text-xl">{title}</h3>
@@ -48,9 +65,9 @@ export function Services() {
                   {description}
                 </p>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

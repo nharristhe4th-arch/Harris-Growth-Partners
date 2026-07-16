@@ -1,4 +1,7 @@
-import { Reveal } from "./Reveal";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 const steps = [
   {
@@ -28,10 +31,18 @@ const steps = [
 ];
 
 export function HowItWorks() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="process" className="border-t border-line bg-white">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <Reveal className="max-w-2xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
           <h2 className="font-serif text-3xl tracking-tight sm:text-4xl">
             How it works
           </h2>
@@ -39,23 +50,34 @@ export function HowItWorks() {
             A straightforward four-step process from first conversation to a
             working system.
           </p>
-        </Reveal>
+        </motion.div>
 
-        <ol className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <li key={step.number} className="border-t border-ink/20 pt-5">
-              <Reveal delay={index * 100}>
-                <span className="font-serif text-sm text-accent">
-                  {step.number}
-                </span>
-                <h3 className="mt-3 text-lg font-medium">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {step.description}
-                </p>
-              </Reveal>
-            </li>
+        {/* Steps animate in sequence (01 -> 02 -> 03 -> 04) via
+            staggerChildren, reading as a guided walkthrough rather than
+            four things appearing at once. */}
+        <motion.ol
+          className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+        >
+          {steps.map((step) => (
+            <motion.li
+              key={step.number}
+              variants={fadeUp}
+              className="border-t border-ink/20 pt-5"
+            >
+              <span className="font-serif text-sm text-accent">
+                {step.number}
+              </span>
+              <h3 className="mt-3 text-lg font-medium">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                {step.description}
+              </p>
+            </motion.li>
           ))}
-        </ol>
+        </motion.ol>
       </div>
     </section>
   );

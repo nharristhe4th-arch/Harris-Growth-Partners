@@ -1,12 +1,23 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/lib/site-config";
-import { Reveal } from "./Reveal";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function About() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="about" className="border-t border-line">
       <div className="mx-auto max-w-6xl px-6 py-24">
-        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
-          <Reveal>
+        <motion.div
+          className="grid gap-12 md:grid-cols-[1fr_2fr]"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+        >
+          <motion.div variants={fadeUp}>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
               About
             </p>
@@ -14,9 +25,12 @@ export function About() {
               {siteConfig.founderName}
             </h2>
             <p className="mt-2 text-ink-soft">Founder, {siteConfig.name}</p>
-          </Reveal>
+          </motion.div>
 
-          <Reveal delay={100} className="space-y-6 text-lg leading-relaxed text-ink-soft">
+          <motion.div
+            variants={fadeUp}
+            className="space-y-6 text-lg leading-relaxed text-ink-soft"
+          >
             <p>
               I&apos;m a finance student at the College of Charleston and the
               founder of{" "}
@@ -32,8 +46,8 @@ export function About() {
               outbound systems I rely on to other owners facing the same
               problem.
             </p>
-          </Reveal>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
