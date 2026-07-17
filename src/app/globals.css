@@ -15,6 +15,11 @@
      the navy without reading as a bright energy/gaming hue. */
   --color-accent: #d3a86a;
   --color-accent-soft: #d3a86a1f;
+
+  /* Real Tailwind slate-800/600 values -- the PulseBeams component's
+     default baseColor/accentColor props reference these by name. */
+  --slate-800: #1e293b;
+  --slate-600: #475569;
 }
 
 @theme inline {

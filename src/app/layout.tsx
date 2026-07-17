@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
-import { ShaderBackground } from "@/components/ShaderBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,7 +36,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen bg-paper font-sans text-ink antialiased">
-        <ShaderBackground />
         {children}
       </body>
     </html>
